@@ -78,7 +78,12 @@ def rotate_key(key_metadata, account_session, central_account_sm_client):
     user_name = key_metadata['UserName']
     access_key_id = key_metadata['AccessKeyId']
     log.info(f'Rotating user {user_name} key {access_key_id}')
-    my_region = account_session.region_name
+
+    return 
+
+
+
+    """ my_region = account_session.region_name
 
     iam_client = account_session.client('iam')
     if Config.runLambdaInVPC:
@@ -174,24 +179,24 @@ def rotate_key(key_metadata, account_session, central_account_sm_client):
         else:
             raise error
 
-    return
+    return """
 
 def deactivate_key(key_metadata, account_session):
     user_name = key_metadata['UserName']
     access_key_id = key_metadata['AccessKeyId']
     log.info(f'Deactivating user {user_name} key {access_key_id}')
-
-    iam_client = account_session.client('iam')
+    return 
+    """ iam_client = account_session.client('iam')
     iam_client.update_access_key(UserName=user_name,
                                  AccessKeyId=access_key_id,
-                                 Status='Inactive')
+                                 Status='Inactive') """
 
 
 def delete_key(key_metadata, account_session):
     user_name = key_metadata['UserName']
     access_key_id = key_metadata['AccessKeyId']
     log.info(f'Deleting user {user_name} key {access_key_id}')
-
-    iam_client = account_session.client('iam')
+    return 
+    """ iam_client = account_session.client('iam')
     iam_client.delete_access_key(UserName=user_name,
-                                 AccessKeyId=access_key_id)
+                                 AccessKeyId=access_key_id) """
